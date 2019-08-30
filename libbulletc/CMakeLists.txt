@@ -404,7 +404,10 @@ ADD_LIBRARY(${BULLETC_LIB} SHARED
     src/hacdHACD_wrap.cpp
     src/hacdHACD_wrap.h
 )
+if ("$ENV{TRAVIS_JOB_NAME}" STREQUAL "Linux x64")
+    TARGET_SOURCES(${BULLETC_LIB} PRIVATE src/wrap_memcpy.c)
+endif()
 
 TARGET_LINK_LIBRARIES(${BULLETC_LIB} BulletCollision BulletDynamics LinearMath BulletFileLoader BulletSoftBody BulletWorldImporter BulletXmlWorldImporter HACD)
 
-ADD_SUBDIRECTORY(test)
+# ADD_SUBDIRECTORY(test)
