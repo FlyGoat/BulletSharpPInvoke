@@ -2,54 +2,42 @@ git:
   depth: 3
 env:
   global:
-  - secure: "FVuqlxPEwVhRx+/LPZ6XR3O3ukIitxo42lRKNxGhpCevzVVYpCsVIRY4HqF9uL809X7F/LRC+m9q2a06UugNkdz5CM5INlBjIIMPRmvZjGgwJ8YhnpogWRHnxJgbsakoDL/9iax/KMLsuBnyZm68R0+bo94uq+f3OB//BR5DZV540bZIHuqYe5GWucm5tgG/l0MFbIhTnX2y4EBx+q+ysgc73f8ys1E8xdmtMnJEWqNoDOX64HNSBaDZIbwWnt+8MRj0eDr8HDXnGwoUQKUJFGjEHmE8od/RwOrwVcSp+xrO4wETSMvqNTpQ4iUmzgxq+hjn8C98rbttE7LBVX0Brk8I4aYxYn9+xY8FzQhPHl9y8+2xHa9zGVeANB0XikJh/AWoIWqb0CjQlh7Jtmu7K9+UBBFfsqGNavTqudwMcayubanoEEQelIayMjHb9CHcT5wHAB60DVDgYyeU+16akM/9E2ZSmyQFvSiwahaVt9j1W6dBnUpTvUidAAKe5BZikITr0+RGDkQNO6XKKpnAs87vLI5m4v7Rr4Vce+iCy6tAG82I3oVI00Wgh0DFBNDIIlpD68yyePXJ/sW4lvD6kfZzKXkk7SZ4VPp9NGm9/W6HKc2vHVC/ak81uitbpvRQSv6dJN0TPeB46Yw25NJaTaf6UBYgvebiWdwWreoeX8Y="
-  - secure: "JuRmidI8TdBEvx/QEcW2p/OGouNLslYt96JizHt66TRQ+++hDSMmxTzraH5FXgb8viq7ataslNKdivS60uxJJVnagPtjmHdO/S7HrcvMdegMV/xEDnRvCRiYfOO+SuXuBkYBBz6otMkGF21m+xocVD1YQ6VjQjeZ8/RiTDfgyVBRSVDsulE6eK7vfUxTwrgER+K0o0HN4ijf089MfWsWbi4iUtDdFY67lQ4yztIW66l1iYXpMXkGp5Mm82Tg+3mHJs8rWeafxS9sfDziuOGZw3Okl/gCLoK7SQ7zdclUKun7KnF5j5XL7lpa6/sv0SmrF0+P9oJIwqLR753E+dfkek4wRZTslnaYtV3UYyXBnNKgc5B4dXr3VNNX5ianuWAPUUfwZlzjaaQyUgUTzZJqPbodTfncHt+ZUpaqNKbLLwduajEtJzIUAHDYkmPHSkjzb7bpgjsXBSh9IMhyYOLCAtNxSQ02IFFosa7pgJA9ritnZoLVjeTdRLnjJgN/cBxRfSlkGrU0aXTVisyR5D/bYIBRNrPC1P8Bk0YPv5+V5iD2+2dKdLUCHhO51107++/3zGiIFwmvaBZnIC3EBTkGwueKW7GdgAp7VGF5BxWmOAH/DIfCJVRXTFmB5RRXrVIv+2JM6VQQBVxrV+R92Z/vN2CUgbQUoaXMaR/2fAJ0+QU="
-  - AWS_DEFAULT_REGION: "us-east-1"
+  - AWS_DEFAULT_REGION: us-west-1
   - S3_PARAMS: '"--acl public-read --cache-control \"public,must-revalidate,proxy-revalidate,max-age=0\""'
   - BULLETC_PARAMS: '"-DCMAKE_BUILD_TYPE=Release -DBUILD_ENET=OFF -DBUILD_CLSOCKET=OFF"'
-
+  - secure: Kc+xNkYY08iDWCWf+MQ1uQ/TSn8vW9wMCSpxFz0S2Jp67NxdqqGfKUoddbyIrMke1481OPrROfkk/sWKTvno7lyL8g2qU4ykCx8nrtzIvzB5OifXy4teE4Xuo2rT/fAktS+gdftwNkixraNye9Ef35AcKyVzZFZ9RisNiClWFg1fF6zqFJeaDUpsbInCeN702QXuy4sdzisvMjdG9Q9Sii2VC4x/062xYCcrdlWHfn15I1FtXFSLmYtBddehKvkpuhvyOet1jTEvGHi9fakvH1MOvyk7qQlohygG38NT4OUcizDeDQ/p+wHxqnZspSibEEuMvUjbfe/ClTpfPTOU0n/12HwAg/TqDoVAieXEX8QS9IXlGqz5NADlt0GhnphahmD8Tf0wIa8IWQds8GakiXThQCumghLIFBQ+61ZImFEMq2dnCD2HDP2+zdf8q9ROzI14jwdN70jR4zFg27z+o9ZStU8Kn9NZzh8QlbX97maQ73c3Ov0YRCOHB0FIiIz5wroRjThNoDikGvZ7cys+Ig0vWg1l3+gV141G9FZCc2saQQAoqtxq1xm5s83LU7c4CCyVgSu3MKgBYfXXIhZt/ULB5+CYlimEZkhu4PnMLH28XsapJBRq0Cj5k/R4T453HaVdOba0GVfJkk2QzBGvJdpwCVhmxo4SfZWXVqCcc+o=
 matrix:
   include:
-
-  # -----------------
-  - name: "Linux x64"
-  # -----------------
+  - name: Linux x64
     dist: xenial
     language: c
     compiler: gcc
-
     addons:
       apt:
         packages:
         - cmake
         - gcc-4.8
         - g++-4.8
-
     before_install:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
-
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
-
     script:
     - cd libbulletc
     - mkdir build
     - cd build
-    - "CC=gcc-4.8 CXX=g++-4.8 cmake $BULLETC_PARAMS -DCMAKE_C_FLAGS=\"-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0\" -DCMAKE_SHARED_LINKER_FLAGS=-Wl,--wrap,memcpy .."
+    - CC=gcc-4.8 CXX=g++-4.8 cmake $BULLETC_PARAMS -DCMAKE_C_FLAGS="-std=c99 -U_FORTIFY_SOURCE
+      -D_FORTIFY_SOURCE=0" -DCMAKE_SHARED_LINKER_FLAGS=-Wl,--wrap,memcpy ..
     - cmake --build .
     - strip libbulletc.so
-    - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/x64/ $S3_PARAMS"
-
-  # -----------------
-  - name: "Linux arm32"
-  # -----------------
+    - git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git
+    - aws s3 cp libbulletc.so s3://lwjgl-mips64/nightly/linux/x64/ $S3_PARAMS
+    - aws s3 cp libbulletc.so.git s3://lwjgl-mips64/nightly/linux/x64/ $S3_PARAMS
+  - name: Linux arm32
     dist: xenial
     language: c
     compiler: gcc
-
     addons:
       apt:
         packages:
@@ -57,7 +45,6 @@ matrix:
         - gcc-4.8-arm-linux-gnueabihf
         - g++-4.8-arm-linux-gnueabihf
         - libc6-dev-armhf-cross
-
     before_install:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
@@ -67,28 +54,23 @@ matrix:
     - sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - sudo dpkg --add-architecture armhf
     - sudo apt-get update || true
-
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
-
     script:
     - cd libbulletc
     - mkdir build
     - cd build
-    - "CC=arm-linux-gnueabihf-gcc-4.8 CXX=arm-linux-gnueabihf-g++-4.8 cmake $BULLETC_PARAMS -DCMAKE_C_FLAGS=\"-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0\" .."
+    - CC=arm-linux-gnueabihf-gcc-4.8 CXX=arm-linux-gnueabihf-g++-4.8 cmake $BULLETC_PARAMS
+      -DCMAKE_C_FLAGS="-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0" ..
     - cmake --build .
     - arm-linux-gnueabihf-strip libbulletc.so
-    - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm32/ $S3_PARAMS"
-
-    # -----------------
-  - name: "Linux arm64"
-  # -----------------
+    - git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git
+    - aws s3 cp libbulletc.so s3://lwjgl-mips64/nightly/linux/arm32/ $S3_PARAMS
+    - aws s3 cp libbulletc.so.git s3://lwjgl-mips64/nightly/linux/arm32/ $S3_PARAMS
+  - name: Linux arm64
     dist: xenial
     language: c
     compiler: gcc
-
     addons:
       apt:
         packages:
@@ -96,10 +78,8 @@ matrix:
         - gcc-4.8-aarch64-linux-gnu
         - g++-4.8-aarch64-linux-gnu
         - libc6-dev-arm64-cross
-
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
-
     before_install:
     - pip install --user awscli
     - export PATH=$PATH:$HOME/.local/bin
@@ -109,44 +89,69 @@ matrix:
     - sudo sed -i 's#http://.*/ubuntu#http://ports.ubuntu.com/ubuntu-ports#' /etc/apt/sources.list.d/ports.list
     - sudo dpkg --add-architecture arm64
     - sudo apt-get update || true
-
-    before_script:
-    - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
-
     script:
     - cd libbulletc
     - mkdir build
     - cd build
-    - "CC=aarch64-linux-gnu-gcc-4.8 CXX=aarch64-linux-gnu-g++-4.8 cmake $BULLETC_PARAMS -DCMAKE_C_FLAGS=\"-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0\" .."
+    - CC=aarch64-linux-gnu-gcc-4.8 CXX=aarch64-linux-gnu-g++-4.8 cmake $BULLETC_PARAMS
+      -DCMAKE_C_FLAGS="-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0" ..
     - cmake --build .
     - aarch64-linux-gnu-strip libbulletc.so
-    - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git"
-    - "aws s3 cp libbulletc.so s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.so.git s3://build.lwjgl.org/nightly/linux/arm64/ $S3_PARAMS"
-
-  # -----------------
-  - name: "macOS"
-  # -----------------
+    - git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git
+    - aws s3 cp libbulletc.so s3://lwjgl-mips64/nightly/linux/arm64/ $S3_PARAMS
+    - aws s3 cp libbulletc.so.git s3://lwjgl-mips64/nightly/linux/arm64/ $S3_PARAMS
+  - name: Linux mips64
+    dist: xenial
+    language: c
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+        - cmake
+        - gcc-5-mips64el-linux-gnuabi64
+        - g++-5-mips64el-linux-gnuabi64
+        - libc6-dev-mips64el-cross
+    before_script:
+    - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
+    before_install:
+    - pip install --user awscli
+    - export PATH=$PATH:$HOME/.local/bin
+    - sudo rm -rf /etc/apt/sources.list
+    - sudo sh -c "echo 'deb http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list"
+    - sudo dpkg --add-architecture mips64el
+    - sudo apt-get update || true
+    script:
+    - cd libbulletc
+    - mkdir build
+    - cd build
+    - CC=mips64el-linux-gnuabi64-gcc-5 CXX=mips64el-linux-gnuabi64-g++-5 cmake $BULLETC_PARAMS
+      -DCMAKE_C_FLAGS="-std=c99 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0" ..
+    - cmake --build .
+    - mips64el-linux-gnuabi64-strip libbulletc.so
+    - git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.so.git
+    - aws s3 cp libbulletc.so s3://lwjgl-mips64/nightly/linux/mips64/ $S3_PARAMS
+    - aws s3 cp libbulletc.so.git s3://lwjgl-mips64/nightly/linux/mips64/ $S3_PARAMS
+    - mkdir bullet_upload
+    - cp bullet/src/LinearMath/libLinearMath.a ./bullet_upload
+    - cp bullet/src/Bullet*/libBullet*.a ./bullet_upload
+    - aws s3 sync ./bullet_upload s3://lwjgl-mips64/nightly/linux/mips64/bullet $S3_PARAMS
+  - name: macOS
     language: objective-c
     osx_image: xcode10.3
     compiler: clang
-
     before_install:
     - brew update
-
     install:
     - brew install awscli
-
     before_script:
     - git clone --depth 1 https://github.com/LWJGL-CI/bullet3.git ../bullet3
-
     script:
     - cd libbulletc
     - mkdir build
     - cd build
-    - "cmake $BULLETC_PARAMS -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 .."
+    - cmake $BULLETC_PARAMS -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 ..
     - cmake --build .
     - strip -u -r libbulletc.dylib
-    - "git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.dylib.git"
-    - "aws s3 cp libbulletc.dylib s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
-    - "aws s3 cp libbulletc.dylib.git s3://build.lwjgl.org/nightly/macosx/x64/ $S3_PARAMS"
+    - git log --first-parent --pretty=format:%H HEAD~2..HEAD~1 > libbulletc.dylib.git
+    - aws s3 cp libbulletc.dylib s3://lwjgl-mips64/nightly/macosx/x64/ $S3_PARAMS
+    - aws s3 cp libbulletc.dylib.git s3://lwjgl-mips64/nightly/macosx/x64/ $S3_PARAMS
